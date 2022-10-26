@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ---------------------- HEADER CSS --------------------------------*/
+.header {
+  background-color: #253551;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 5vh;
+}
+
+.header-actions span {
+  padding-left: 20px;
+}
