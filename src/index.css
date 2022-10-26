@@ -26,3 +26,43 @@ code {
 .header-actions span {
   padding-left: 20px;
 }
+/* ---------------------- HEADER CSS --------------------------------*/
+/* ---------------------- TABLE NOTES -------------------------------*/
+
+.content-table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ---------------------- TABLE NOTES -------------------------------*/
+/* ---------------------- NOTES -------------------------------------*/
+.content-table-card {
+  background-color: #f3e34e;
+  max-width: 20vw;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.content-table-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.content-table-card-header span {
+  font-weight: bold;
+  font-size: larger;
+}
+
+
+.content-table-card-content {
+  padding-top: 20px;
+}
+
+/* ---------------------- NOTES -------------------------------------*/
+
