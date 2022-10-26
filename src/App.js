@@ -6,7 +6,7 @@ import AddNote from './components/AddNote';
 function App() {
   return (
     <div>
-      <Header/>
+      <Header />
       <AddNote />
       <Tablenotes />
     </div>
