@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Note from "./Note";
+import AddNote from "./AddNote";
 
-const Tablenotes = () => {
+const Tablenotes = ({ showAddForm }) => {
   const [notes, setNotes] = useState([]);
 
   return (
-    <div className="content-table">
-      <Note />
-    </div>
+    <>
+      {showAddForm && <AddNote />}
+      <div className="content-table">
+        <Note />
+      </div>
+    </>
   );
 };
 
