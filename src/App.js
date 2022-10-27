@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Header showAddForm={() => setShowAddForm(!showAddForm)}/>
-      <Tablenotes showAddForm={showAddForm}/>
+      <Tablenotes showAddForm={showAddForm} setShowAddForm={setShowAddForm}/>
     </div>
   );
 }

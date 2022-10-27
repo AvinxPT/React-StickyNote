@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-const AddNote = () => {
+const AddNote = ({ onAdd }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(title, content);
+    onAdd({ title, content });
   };
 
   return (

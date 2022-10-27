@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Note from "./Note";
 import AddNote from "./AddNote";
 
-const Tablenotes = ({ showAddForm }) => {
+const Tablenotes = ({ showAddForm, setShowAddForm }) => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -28,9 +28,22 @@ const Tablenotes = ({ showAddForm }) => {
       : alert("NOT DELETED");
   };
 
+  const addNewNote = async (note) => {
+    const res = await fetch("http://localhost:5500/notes", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(note),
+    });
+    const data = await res.json();
+    setNotes([...notes, data.result]);
+    setShowAddForm(false);
+  };
+
   return (
     <>
-      {showAddForm && <AddNote />}
+      {showAddForm && <AddNote onAdd={addNewNote} />}
       <div className="content-table">
         {notes.map((noteContent, index) => (
           <Note key={index} noteContent={noteContent} onDelete={deleteNote} />
