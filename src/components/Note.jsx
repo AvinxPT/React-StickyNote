@@ -1,17 +1,17 @@
 import React from "react";
 
-const Note = () => {
+const Note = ({ noteContent }) => {
   return (
     <div className="content-table-card">
       <div className="content-table-card-header">
         <div>
-          <span>Titulo da Note</span>
+          <span>{noteContent.title}</span>
         </div>
         <div>
-          <span>X</span>
+          <span onClick={() => alert("deleted")}>X</span>
         </div>
       </div>
-      <div className="content-table-card-content">Conteudo da note</div>
+      <div className="content-table-card-content">{noteContent.content}</div>
     </div>
   );
 };
