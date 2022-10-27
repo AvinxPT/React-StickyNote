@@ -19,12 +19,21 @@ const Tablenotes = ({ showAddForm }) => {
     return data;
   };
 
+  const deleteNote = async (id) => {
+    const res = await fetch(`http://localhost:5500/notes/${id}`, {
+      method: "DELETE",
+    });
+    res.status === 200
+      ? setNotes(notes.filter((noteContent) => noteContent.id !== id))
+      : alert("NOT DELETED");
+  };
+
   return (
     <>
       {showAddForm && <AddNote />}
       <div className="content-table">
         {notes.map((noteContent, index) => (
-          <Note key={index} noteContent={noteContent} />
+          <Note key={index} noteContent={noteContent} onDelete={deleteNote} />
         ))}
       </div>
     </>
