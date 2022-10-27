@@ -1,6 +1,8 @@
+import { setCookie } from "../helpers/cookies";
+
 import React, { useState } from "react";
 
-function Login() {
+function Login({ onSubmit }) {
   const [loginDetails, setLoginDetails] = useState({
     username: "",
     password: "",
@@ -8,7 +10,11 @@ function Login() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(loginDetails);
+    // check db
+    onSubmit(loginDetails.username);
+    //check db
+    let login = JSON.stringify(loginDetails);
+    setCookie("user", login, 2);
   };
 
   return (
