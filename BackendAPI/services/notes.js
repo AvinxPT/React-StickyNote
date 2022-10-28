@@ -10,6 +10,16 @@ function getNotes (){
     }
 }
 
+function getNotesForUser(id) {
+    try{
+        const notes = db.getAll(`SELECT * FROM notes WHERE userid=@id`,{id})
+        console.log("All notes from user");
+        return notes;
+    } catch (err) {
+        console.log("error on query", err.message);
+    }
+}
+
 function createNote(noteObj) {
     const {title, content} = noteObj;
     const posting = db.newNote('INSERT INTO notes (title, content) VALUES (@title, @content)', {title, content});
@@ -34,6 +44,7 @@ function deleteNote(id) {
 
 module.exports = {
     getNotes,
+    getNotesForUser,
     createNote,
     deleteNote
 }

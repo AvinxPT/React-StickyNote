@@ -1,4 +1,5 @@
 const express = require('express');
+const { useInRouterContext } = require('react-router-dom');
 const router = express.Router();
 const notes = require('../services/notes');
 
@@ -9,6 +10,15 @@ router.get('/', function(req,res) {
         res.json(notes.getNotes());
     } catch(err) {
         console.error('Error while getting notes', err.message);
+    }
+})
+
+//get all notes from user
+router.get('/:id', function(req,res){
+    try{
+        res.json(notes.getNotesForUser(req.params.id));
+    } catch (err) {
+        console.error("Error getting notes for user", err.message);
     }
 })
 
