@@ -1,3 +1,5 @@
+import { getCookie,setCookie } from './helpers/cookies';
+
 import './App.css';
 import React, {useState} from 'react';
 import Header from './components/Header';
@@ -10,7 +12,8 @@ function App() {
   const [userDetails, setUserDetails] = useState({});
   const [isLoggedOn, setIsLoggedOn] = useState(false);
 
-  console.log(userDetails);
+
+
 
   const checkUser = async (username) => {
     const res = await fetch(`http://localhost:5500/user/${username}`);
@@ -19,6 +22,14 @@ function App() {
       setUserDetails(data);
       alert("Login Sucessfull")
       setIsLoggedOn(true);
+      
+      const cookieData = {};
+      cookieData.id = data.id;
+      cookieData.username = data.username;
+      cookieData.password = data.password;
+
+      let cookieStringData = JSON.stringify(cookieData);
+      setCookie("user", cookieStringData, 2);
     } else {
       console.log("WRONG USERNAME");
     }

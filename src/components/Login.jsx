@@ -10,11 +10,8 @@ function Login({ onSubmit }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // check db
+    //checks db
     onSubmit(loginDetails.username);
-    //check db
-    //let login = JSON.stringify(loginDetails);
-    //setCookie("user", login, 2);
   };
 
   return (
