@@ -1,7 +1,7 @@
 import { getCookie,setCookie } from './helpers/cookies';
 
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Tablenotes from './components/Tablenotes';
 import Login from './components/Login';
@@ -12,6 +12,16 @@ function App() {
   const [userDetails, setUserDetails] = useState({});
   const [isLoggedOn, setIsLoggedOn] = useState(false);
 
+  useEffect(() => {
+    if(getCookie("user")){
+      let cookieData = JSON.parse(getCookie("user"));
+      setUserDetails(cookieData);
+      setIsLoggedOn(true);
+    } else {
+      console.log("dont exist")
+    }
+  },[])
+  
 
 
 
@@ -25,6 +35,7 @@ function App() {
       
       const cookieData = {};
       cookieData.id = data.id;
+      cookieData.name = data.name;
       cookieData.username = data.username;
       cookieData.password = data.password;
 
@@ -38,6 +49,8 @@ function App() {
   const logoutHandler = () => {
     setUserDetails({});
     setIsLoggedOn(false);
+    setUserDetails({});
+    setCookie("user", "", -1);
   }
 
   
