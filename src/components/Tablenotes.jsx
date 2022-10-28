@@ -2,22 +2,28 @@ import React, { useState, useEffect } from "react";
 import Note from "./Note";
 import AddNote from "./AddNote";
 
-const Tablenotes = ({ showAddForm, setShowAddForm }) => {
+const Tablenotes = ({ showAddForm, setShowAddForm, userId }) => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const getNotes = async () => {
-      const notesFromServer = await fetchNotes();
+      const notesFromServer = await fetchNotesForUser(userId);
       setNotes(notesFromServer);
     };
     getNotes();
   }, []);
 
-  const fetchNotes = async () => {
-    const res = await fetch("http://localhost:5500/notes");
+  const fetchNotesForUser = async (id) => {
+    const res = await fetch(`http://localhost:5500/notes/${id}`);
     const data = await res.json();
     return data;
   };
+
+  //const fetchNotes = async () => {
+  //  const res = await fetch("http://localhost:5500/notes");
+  //  const data = await res.json();
+  //  return data;
+  //};
 
   const deleteNote = async (id) => {
     const res = await fetch(`http://localhost:5500/notes/${id}`, {

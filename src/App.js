@@ -59,7 +59,7 @@ function App() {
     <div>
       <Header showAddForm={() => setShowAddForm(!showAddForm)} logged={isLoggedOn} logout={logoutHandler}/>
       {userDetails.username
-      ? <Tablenotes showAddForm={showAddForm} setShowAddForm={setShowAddForm}/>
+      ? <Tablenotes showAddForm={showAddForm} setShowAddForm={setShowAddForm} userId={userDetails.id}/>
       : <Login onSubmit={checkUser}/>
       }
     </div>
