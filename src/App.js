@@ -8,6 +8,7 @@ import Login from './components/Login';
 function App() {
   const [showAddForm, setShowAddForm] = useState(false);
   const [userDetails, setUserDetails] = useState({});
+  const [isLoggedOn, setIsLoggedOn] = useState(false);
 
   console.log(userDetails);
 
@@ -17,16 +18,22 @@ function App() {
       const data = await res.json();
       setUserDetails(data);
       alert("Login Sucessfull")
+      setIsLoggedOn(true);
     } else {
       console.log("WRONG USERNAME");
     }
   };
 
+  const logoutHandler = () => {
+    setUserDetails({});
+    setIsLoggedOn(false);
+  }
+
   
 
   return (
     <div>
-      <Header showAddForm={() => setShowAddForm(!showAddForm)}/>
+      <Header showAddForm={() => setShowAddForm(!showAddForm)} logged={isLoggedOn} logout={logoutHandler}/>
       {userDetails.username
       ? <Tablenotes showAddForm={showAddForm} setShowAddForm={setShowAddForm}/>
       : <Login onSubmit={checkUser}/>
