@@ -13,8 +13,8 @@ function Login({ onSubmit }) {
     // check db
     onSubmit(loginDetails.username);
     //check db
-    let login = JSON.stringify(loginDetails);
-    setCookie("user", login, 2);
+    //let login = JSON.stringify(loginDetails);
+    //setCookie("user", login, 2);
   };
 
   return (
