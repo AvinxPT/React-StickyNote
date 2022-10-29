@@ -32,6 +32,16 @@ router.post('/', function (req, res) {
     }
 })
 
+//post new note for specific user
+router.post('/insert', function (req, res) {
+    try {
+        console.log(req.body);
+        res.json(notes.createNoteForUser(req.body));
+    } catch (err) {
+        console.error(`Error adding note for user`, err.message);
+    }
+})
+
 //delete note
 router.delete('/:id', function (req,res) {
     try {

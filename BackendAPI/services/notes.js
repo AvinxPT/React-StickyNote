@@ -31,6 +31,17 @@ function createNote(noteObj) {
     return {result};
 }
 
+function createNoteForUser(noteObj){
+    const {title, content, userid} = noteObj;
+    const posting = db.newNote('INSERT INTO notes (title, content, userid) VALUES (@title, @content, @userid)', {title, content, userid});
+
+    let result = 'Error in creating new note';
+    if (posting.changes) {
+         result = db.getOne(`SELECT * FROM notes WHERE title=@title and content=@content and userid=@userid`, {title, content, userid});
+    }
+    return {result};    
+}
+
 function deleteNote(id) {
     const disabled = db.deleteNote('DELETE FROM notes where id=@id',{id});
 
@@ -46,5 +57,6 @@ module.exports = {
     getNotes,
     getNotesForUser,
     createNote,
+    createNoteForUser,
     deleteNote
 }
