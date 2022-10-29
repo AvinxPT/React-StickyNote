@@ -34,8 +34,21 @@ const Tablenotes = ({ showAddForm, setShowAddForm, userId }) => {
       : alert("NOT DELETED");
   };
 
-  const addNewNote = async (note) => {
-    const res = await fetch("http://localhost:5500/notes", {
+  //const addNewNote = async (note) => {
+  //  const res = await fetch("http://localhost:5500/notes", {
+  //    method: "POST",
+  //    headers: {
+  //      "Content-type": "application/json",
+  //    },
+  //    body: JSON.stringify(note),
+  //  });
+  //  const data = await res.json();
+  //  setNotes([...notes, data.result]);
+  //  setShowAddForm(false);
+  //};
+
+  const addNewNoteForUser = async (note) => {
+    const res = await fetch("http://localhost:5500/notes/insert", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -49,7 +62,7 @@ const Tablenotes = ({ showAddForm, setShowAddForm, userId }) => {
 
   return (
     <>
-      {showAddForm && <AddNote onAdd={addNewNote} />}
+      {showAddForm && <AddNote onAdd={addNewNoteForUser} userid={userId} />}
       <div className="content-table">
         {notes.map((noteContent, index) => (
           <Note key={index} noteContent={noteContent} onDelete={deleteNote} />
