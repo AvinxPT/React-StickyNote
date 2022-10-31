@@ -223,3 +223,61 @@ code {
 }
 
 /* ---------------------- LOGIN -----------------------------------------*/
+/* ---------------------- REGISTER -------------------------------------- */
+/* ---------------------- REGISTER -------------------------------------- */
+        .register-wrapper {
+          position: absolute;
+          top: 30%;
+          left: 40%;
+          border: solid 2px white;
+          color: white;
+          box-shadow: rgb(6 24 44 / 40%) 0px 0px 0px 2px, rgb(6 24 44 / 65%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
+          border-radius: 20px;
+        }
+    
+        .register {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          margin: 20px;
+        }
+    
+        .register input {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+    
+        .register button {
+          margin-top: 10px;
+          background-color: #fff;
+          border: 1px solid #d5d9d9;
+          border-radius: 8px;
+          box-shadow: rgb(6 24 44 / 40%) 0px 0px 0px 2px, rgb(6 24 44 / 65%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
+          box-sizing: border-box;
+          color: #0f1111;
+          cursor: pointer;
+          display: inline-block;
+          font-family: "Amazon Ember", sans-serif;
+          font-size: 13px;
+          line-height: 29px;
+          padding: 0 10px 0 11px;
+          position: relative;
+          text-align: center;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: middle;
+          width: 100px;
+          align-self: center;
+        }
+    
+        .register button:hover {
+          background-color: #253551;
+        }
+    
+        .register button:focus {
+          border-color: #008296;
+          box-shadow: rgb(6 24 44 / 40%) 0px 0px 0px 2px, rgb(6 24 44 / 65%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
+          outline: 0;
+        }

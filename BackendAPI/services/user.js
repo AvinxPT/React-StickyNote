@@ -16,7 +16,7 @@ function getUser (username) {
 //create user
 function createUser(userObj){
     const {name, username, password} = userObj;
-    const postingUser = db.newUser('INSERT INTO users (name, username, password) VALUES (@name, @username, @password)', {name,username,password});
+    const postingUser = db.newUser('INSERT INTO users (username, password) VALUES (@username, @password)', {username,password});
 
     let message = 'Error creating new User';
     if(postingUser.changes){

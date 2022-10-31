@@ -5,6 +5,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Tablenotes from './components/Tablenotes';
 import Login from './components/Login';
+import Register from './components/Register';
 
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
       <Header showAddForm={() => setShowAddForm(!showAddForm)} logged={isLoggedOn} logout={logoutHandler}/>
       {userDetails.username
       ? <Tablenotes showAddForm={showAddForm} setShowAddForm={setShowAddForm} userId={userDetails.id}/>
-      : <Login onSubmit={checkUser}/>
+      : <Register />
       }
     </div>
   );
