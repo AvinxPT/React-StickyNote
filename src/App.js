@@ -7,6 +7,8 @@ import Tablenotes from './components/Tablenotes';
 import Login from './components/Login';
 import Register from './components/Register';
 
+import {Route, Redirect} from 'react-router-dom';
+
 
 function App() {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -59,9 +61,18 @@ function App() {
   return (
     <div>
       <Header showAddForm={() => setShowAddForm(!showAddForm)} logged={isLoggedOn} logout={logoutHandler}/>
+
+      <Route exact path="/" render={() => (
+        <Redirect to="/login" />
+      )}/>
+      
+      <Route path="/register">
+        <Register />
+      </Route>
+      
       {userDetails.username
       ? <Tablenotes showAddForm={showAddForm} setShowAddForm={setShowAddForm} userId={userDetails.id}/>
-      : <Register />
+      : <Route path="/login"><Login onSubmit={checkUser}/></Route>
       }
     </div>
   );

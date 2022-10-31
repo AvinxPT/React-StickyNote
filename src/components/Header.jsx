@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = ({ showAddForm, logged, logout }) => {
   return (
@@ -12,7 +13,16 @@ const Header = ({ showAddForm, logged, logout }) => {
         )}
         {logged && <span onClick={logout}>Logout</span>}
         {console.log(logged)}
-        {!logged && <span>Register</span>}
+        {!logged && (
+          <NavLink className="navlink" to="/register">
+            Register
+          </NavLink>
+        )}
+        {!logged && (
+          <NavLink className="navlink" to="/login">
+            Login
+          </NavLink>
+        )}
       </div>
     </section>
   );

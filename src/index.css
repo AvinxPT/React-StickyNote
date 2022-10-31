@@ -26,6 +26,12 @@ code {
 .header-actions span {
   padding-left: 20px;
 }
+
+.navlink {
+  padding-left: 20px;
+  color:white;
+  text-decoration: none;
+}
 /* ---------------------- HEADER CSS --------------------------------*/
 /* ---------------------- TABLE NOTES -------------------------------*/
 
@@ -226,6 +232,7 @@ code {
 /* ---------------------- REGISTER -------------------------------------- */
 /* ---------------------- REGISTER -------------------------------------- */
         .register-wrapper {
+          background-color: #f3e34e;
           position: absolute;
           top: 30%;
           left: 40%;
