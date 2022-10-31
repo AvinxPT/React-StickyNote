@@ -11,6 +11,8 @@ const Header = ({ showAddForm, logged, logout }) => {
           </span>
         )}
         {logged && <span onClick={logout}>Logout</span>}
+        {console.log(logged)}
+        {!logged && <span>Register</span>}
       </div>
     </section>
   );
